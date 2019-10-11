@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import { postSmurf } from '../redux/actions/index';
 
-const SmurfForm = () => {
+const SmurfForm = ({ postSmurf }) => {
   const [smurf, setSmurf] = useState({
     name: '',
     age: '',
@@ -41,7 +41,7 @@ const SmurfForm = () => {
           onChange={handleChange}
         />
         <input
-          type='number'
+          type='text'
           name='age'
           placeholder='Age'
           value={smurf.age}
@@ -68,4 +68,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(null, {postSmurf})(SmurfForm);
+export default connect(null, { postSmurf })(SmurfForm);

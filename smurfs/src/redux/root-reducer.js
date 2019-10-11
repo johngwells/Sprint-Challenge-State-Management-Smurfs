@@ -11,6 +11,7 @@ export const INITIAL_STATE = {
   // STATE
   smurfs: [],
   isFetching: false,
+  isAdding: false,
   error: ''
 };
 
@@ -38,7 +39,8 @@ const useReducer = (state = INITIAL_STATE, action) => {
     case ADD_SMURF:
       return {
         ...state,
-        isAdding: true
+        isAdding: true,
+        error: ''
       }
     case POST_SMURF:
       return {
@@ -49,6 +51,7 @@ const useReducer = (state = INITIAL_STATE, action) => {
     case POST_FAIL:
       return {
         ...state,
+        isFetching: false,
         isAdding: false,
         error: action.payload
       }
